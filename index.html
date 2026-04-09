@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon | Supermarket App</title>
+    
+    <style>
+        /* 1. YOUR FIGMA COLORS */
+        :root {
+            --primary-color: #212844; 
+            --text-dark: #000000;     
+            --text-light: #737373;    
+            --bg-color: #F9F9F9;
+            --button-color: #FA4A0C;
+        }
+
+        /* 2. BASE CLEANUP */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            /* Centers everything on the screen */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* 3. MOBILE CONTAINER */
+        .mobile-container {
+            display: flex;
+            flex-direction: column; /* Stacks text on top of image */
+            align-items: center;    /* Centers everything horizontally */
+            text-align: center;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 450px;       /* Keeps it phone-sized even on big screens */
+            gap: 30px;              /* Space between text and image */
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .top-navbar {
+            display: flex;
+            justify-content: space-between; /* Pushes logo left, text right */
+            align-items: center; /* Vertically centers them */
+            width: 100%;
+            margin-bottom: 20px; /* Pushes the main text down */
+            padding: 17px 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background-color: var(--primary-color);
+        }
+
+        .nav-logo {
+            height: 84px; /* Adjust this to match your Figma design */
+            width: auto;  /* Keeps the logo from stretching ugly */
+        }
+
+        .nav-title {
+            font-family: Inter;
+            font-size: 17px;
+            font-style: italic;
+            font-weight: 900;
+            color: #F0E8D5;
+        }
+
+        /* 4. TEXT STYLING */
+        .badge {
+            border-radius: 30px;
+            background-color: var(--button-color);
+            color: white;
+            padding: 8px 16px;
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 36px; /* 150% */
+            display: inline-block;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+          font-family: Montserrat;
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 700;
+          margin-bottom: 15px;
+          letter-spacing: 1.5px;
+        }
+
+        p {
+            color: var(--text-light);
+            font-family: Montserrat;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 38px; /* 158.333% */
+            letter-spacing: 0.2px;
+            margin-bottom: 20px;
+        }
+
+/* --- 5. DUAL 3D PHONE SHOWCASE --- */
+        
+        .dual-showcase {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            perspective: 1200px; /* The 3D Camera distance */
+            margin-top: 20px;
+            padding-bottom: 80px; 
+        }
+
+        .phone-wrapper {
+            transform-style: preserve-3d;
+        }
+
+        /* THE LEFT PHONE: Turned Right */
+        .left-phone {
+            /* Turns right (20deg), tilts back slightly (5deg) */
+            transform: rotateY(30deg) rotateX(10deg);
+            z-index: 2; /* Keeps it in front */
+        }
+
+        /* THE RIGHT PHONE: Turned Left & Pushed Down */
+        .right-phone {
+            /* Turns left (-20deg), tilts back (5deg), pushes down (50px), shifts left to overlap (-40px) */
+            transform: rotateY(-20deg) rotateX(5deg) translateY(50px) translateX(-15px);
+            z-index: 1; /* Puts it slightly behind the left phone */
+        }
+
+        /* The Hardware Frame (Slightly narrower so two fit on screen) */
+        .css-phone-frame {
+            width: 150px;  /* Scaled down from 260px */
+            height: 320px; /* Scaled down from 550px */
+            background-color: #111;
+            border-radius: 25px;
+            padding: 6px;
+            position: relative;
+            
+            /* Dynamic shadow that adds depth */
+            box-shadow: 
+                -15px 25px 30px rgba(0, 0, 0, 0.2), 
+                inset 0px 0px 8px rgba(255, 255, 255, 0.2); 
+        }
+
+        /* Right Phone needs a slightly different shadow angle */
+        .right-phone .css-phone-frame {
+            box-shadow: 
+                15px 25px 30px rgba(0, 0, 0, 0.2), 
+                inset 0px 0px 8px rgba(255, 255, 255, 0.2);
+        }
+
+        /* The Camera Notch */
+        .phone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 45px; /* Scaled down */
+            height: 14px; /* Scaled down */
+            background-color: #000;
+            border-radius: 10px;
+            z-index: 10; 
+        }
+
+        /* The App Screen Image */
+        .app-screen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            border-radius: 25px; 
+            background-color: var(--bg-color); 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+            <img src="logo.png" alt="Supermarket Logo" class="nav-logo">
+            <span class="nav-title">AAVA<br>Restaurant</span>
+    </nav>
+
+
+    <div class="mobile-container">
+
+        <div class="text-section">
+
+            
+          <h1>Why stay hungry<br>order from AAVA<br>anytime, anywhere.</h1>
+            <p>Download the AAVA Restaurant app now on </p>
+            
+            <span class="badge">Coming Soon....</span>
+
+          
+        </div>
+
+        <div class="dual-showcase">
+            
+            <div class="phone-wrapper left-phone">
+                <div class="css-phone-frame">
+                    <div class="phone-notch"></div>
+                    <img src="app-mockup-1.png" alt="App Screen 1" class="app-screen">
+                </div>
+            </div>
+
+            <div class="phone-wrapper right-phone">
+                <div class="css-phone-frame">
+                    <div class="phone-notch"></div>
+                    <img src="app-mockup-2.png" alt="App Screen 2" class="app-screen">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
