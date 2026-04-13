@@ -4,11 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon | Supermarket App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+
+        /* --- FOOTER & SOCIAL LINKS --- */
+        .footer-container {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px; /* Space between the text and the buttons */
+            width: 100%;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            color: #1E293B; /* Deep slate color to match a blue theme */
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* This acts as your "tab spacing" between logos */
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color); /* Deep Navy Blue */
+            border-radius: 50%; /* Perfect circles */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.2);
+        }
+
+        .social-btn svg {
+            width: 22px;
+            height: 22px;
+            fill: #FFFFFF; /* Makes the logos white inside the blue circle */
+        }
+
+        /* Hover Effect for interaction */
+        .social-btn:hover {
+            transform: translateY(-5px); /* Bounces up slightly when tapped */
+            background-color: #3B82F6; /* Brightens up to a lighter blue */
+            box-shadow: 0 8px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        /* --- BENGALI TYPOGRAPHY --- */
+        .bengali-text {
+            font-family: 'Hind Siliguri', sans-serif;
+            line-height: 1.4; /* Crucial for Bengali Matra spacing */
+            letter-spacing: normal; /* Removes English letter-spacing to prevent broken characters */
+        }
+
         /* 1. YOUR FIGMA COLORS */
         :root {
-            --primary-color: #212844; 
+            --primary-color: #101042; 
             --text-dark: #000000;     
             --text-light: #737373;    
             --bg-color: #F9F9F9;
@@ -20,7 +78,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif; 
+            font-family: 'Inter', sans-serif; 
         }
 
         body {
@@ -52,23 +110,20 @@
             justify-content: space-between; /* Pushes logo left, text right */
             align-items: center; /* Vertically centers them */
             width: 100%;
-            margin-bottom: 20px; /* Pushes the main text down */
-            padding: 17px 16px;
+            margin-bottom: 10px; /* Pushes the main text down */
+            padding: 7px 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             background-color: var(--primary-color);
         }
 
         .nav-logo {
-            height: 84px; /* Adjust this to match your Figma design */
+            height: 98px; /* Adjust this to match your Figma design */
             width: auto;  /* Keeps the logo from stretching ugly */
         }
 
         .nav-title {
-            font-family: Inter;
-            font-size: 17px;
-            font-style: italic;
-            font-weight: 900;
-            color: #F0E8D5;
+            height: 74px; /* Adjust this to match your Figma design */
+            width: auto;  /* Keeps the logo from stretching ugly */
         }
 
         /* 4. TEXT STYLING */
@@ -105,6 +160,17 @@
             line-height: 38px; /* 158.333% */
             letter-spacing: 0.2px;
             margin-bottom: 20px;
+        }
+
+        f {
+            color: var(--text-light);
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 18px; /* 158.333% */
+            letter-spacing: 0.2px;
+            margin-bottom: 10px;
         }
 
 /* --- 5. DUAL 3D PHONE SHOWCASE --- */
@@ -184,8 +250,8 @@
 <body>
 
     <nav class="top-navbar">
-            <img src="logo.png" alt="Supermarket Logo" class="nav-logo">
-            <span class="nav-title">AAVA<br>Restaurant</span>
+            <img src="logo.png" alt="AAVA Logo" class="nav-logo">
+            <img src="logo-text.png" alt="AAVA text" class="nav-title">
     </nav>
 
 
@@ -194,7 +260,7 @@
         <div class="text-section">
 
             
-          <h1>Why stay hungry<br>order from AAVA<br>anytime, anywhere.</h1>
+          <h1 class="bengali-text">নতুন শুরু, নতুন স্বাদ, আর একরাশ ভালোবাসা—অক্ষয় তৃতীয়ার এই শুভ দিনে আমাদের দরজায় আপনার পদধূলি প্রত্যাশা করছি।"</h1>
             <p>Download the AAVA Restaurant app now on </p>
             
             <span class="badge">Coming Soon....</span>
@@ -219,6 +285,22 @@
             </div>
 
         </div>
+<div class="footer-container">
+                <f class="footer-text">
+                    <strong>📍 Visit us:</strong> Naul, Shyampur, Howrah, 711312<br>
+                    <strong>📞 Call us:</strong> +91 98841 57082
+                </f>
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/aava.in" target="_blank" class="social-btn">
+                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+
+                    <a href="https://facebook.com/aava.in" target="_blank" class="social-btn">
+                        <svg viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                    </a>
+                </div>
+            </div>
 
     </div>
 
